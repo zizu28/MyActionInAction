@@ -1,4 +1,4 @@
-name: "${{ github.ref }} Action In Action"
+name: "Zizu28 Action In Action"
 description: "Greets someone and returns 42 always"
 inputs:
   who-to-greet:
