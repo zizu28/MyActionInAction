@@ -1,0 +1,22 @@
+name: Test Action
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo to use the action locally
+        run: actions/checkout@v3.5.3
+
+      - name: Run my own container
+        id: my-action
+        uses: ./
+        with:
+          who-to-greet: "@zizu28"
+      
+      - name: Output the answer
+        run: echo "The answer is ${{ steps.my-action.outputs.answer }}"
+
+      - name: Test the container
+        run: |
+          echo "::error file=entrypoint.sh, line=4, title=Error in Container::The answer was not expected"
+          exit 1
