@@ -1,6 +1,5 @@
 FROM alpine:latest
-WORKDIR /app
-COPY ./entrypoint.sh .
-RUN chmod +x ./entrypoint.sh
-RUN chown -R root:root .
-ENTRYPOINT ["./entrypoint.sh"]
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
